@@ -19,6 +19,7 @@ namespace Game
         private bool HintOn = false;
         private int CurMoves => GameCode.CurGuess[GameCode.CurrentAttempt].Count;
         private Stack<(Figure,Figure)> PrevMoves;
+        private Label ansLabel;
 
         public Chessle()
         {
@@ -39,6 +40,7 @@ namespace Game
             label1.Visible = false;
             label2.Visible = false;
             label3.Visible = false;
+            //ShowAnswer();  //Debug
         }
 
         private void DrawMap()
@@ -302,6 +304,38 @@ namespace Game
             newB.Image = newPlace.Image;
             SwitchPlayer();
             HideOldPossibleMoves();
+        }
+
+        private void ShowAnswer()
+        {
+            var showAnswerBtn = new Button
+            {
+                Location = new Point(410, 211),
+                Name = "AnsButton",
+                Size = new Size(67, 39),
+                Text = "Show\r\nAnswer\r\n"
+            };
+            showAnswerBtn.Click += OnShowAnswerClick;
+            this.Controls.Add(showAnswerBtn);
+
+            var curVar = GameCode.CurVariant;
+            var labelText = $"1. {curVar[0]} {curVar[1]}\r\n2. {curVar[2]} {curVar[3]}\r\n3. {curVar[4]} {curVar[5]}";
+            ansLabel = new Label
+            {
+                Name = "AnsLabel",
+                Location = new Point(409, 262),
+                Size = new Size(35, 13),
+                AutoSize = true,
+                Text = labelText,
+                Visible = false,
+                Font = new Font("Microsoft Sans Serif", 10F)
+            };
+            this.Controls.Add(ansLabel);
+        }
+
+        private void OnShowAnswerClick(object sender, EventArgs e)
+        {
+            ansLabel.Visible = !ansLabel.Visible;
         }
     }
 }
