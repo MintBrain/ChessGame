@@ -22,7 +22,7 @@ namespace Game
         {
             var varPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "variants.txt");
             var fileLines = File.ReadLines(varPath);
-            Variants = fileLines.Select(s => s.Split()).ToList();
+            Variants = fileLines.Select(s => s.Split()).Where(l => l.Length == 6).ToList();
             Played = new List<int>(); 
         }
 
