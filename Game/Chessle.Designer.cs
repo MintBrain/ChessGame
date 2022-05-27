@@ -29,6 +29,7 @@ namespace Game
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Chessle));
             this.NewGame = new System.Windows.Forms.Button();
             this.Hint = new System.Windows.Forms.Button();
             this.Check = new System.Windows.Forms.Button();
@@ -76,7 +77,7 @@ namespace Game
             // 
             this.VictoryLabel.AutoSize = true;
             this.VictoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.VictoryLabel.Location = new System.Drawing.Point(416, 130);
+            this.VictoryLabel.Location = new System.Drawing.Point(416, 158);
             this.VictoryLabel.Name = "VictoryLabel";
             this.VictoryLabel.Size = new System.Drawing.Size(61, 20);
             this.VictoryLabel.TabIndex = 3;
@@ -86,7 +87,7 @@ namespace Game
             // 
             this.LoseLabel.AutoSize = true;
             this.LoseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LoseLabel.Location = new System.Drawing.Point(416, 130);
+            this.LoseLabel.Location = new System.Drawing.Point(416, 158);
             this.LoseLabel.Name = "LoseLabel";
             this.LoseLabel.Size = new System.Drawing.Size(49, 20);
             this.LoseLabel.TabIndex = 4;
@@ -95,7 +96,7 @@ namespace Game
             // MoreMovesLabel
             // 
             this.MoreMovesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MoreMovesLabel.Location = new System.Drawing.Point(406, 130);
+            this.MoreMovesLabel.Location = new System.Drawing.Point(406, 158);
             this.MoreMovesLabel.Name = "MoreMovesLabel";
             this.MoreMovesLabel.Size = new System.Drawing.Size(82, 66);
             this.MoreMovesLabel.TabIndex = 5;
@@ -113,7 +114,7 @@ namespace Game
             // 
             // Rules
             // 
-            this.Rules.Location = new System.Drawing.Point(410, 346);
+            this.Rules.Location = new System.Drawing.Point(410, 130);
             this.Rules.Name = "Rules";
             this.Rules.Size = new System.Drawing.Size(67, 23);
             this.Rules.TabIndex = 7;
@@ -147,6 +148,7 @@ namespace Game
             this.Controls.Add(this.Check);
             this.Controls.Add(this.Hint);
             this.Controls.Add(this.NewGame);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(530, 650);
             this.Name = "Chessle";
             this.Text = "Chessle";

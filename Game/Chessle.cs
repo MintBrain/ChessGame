@@ -308,7 +308,7 @@ namespace Game
         {
             var showAnswerBtn = new Button
             {
-                Location = new Point(410, 211),
+                Location = new Point(410, 230),
                 Name = "AnsButton",
                 Size = new Size(67, 39),
                 Text = "Show\r\nAnswer\r\n"
@@ -321,7 +321,7 @@ namespace Game
             ansLabel = new Label
             {
                 Name = "AnsLabel",
-                Location = new Point(409, 262),
+                Location = new Point(409, 280),
                 Size = new Size(35, 13),
                 AutoSize = true,
                 Text = labelText,
