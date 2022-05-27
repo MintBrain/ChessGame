@@ -41,7 +41,7 @@ namespace Game
             VictoryLabel.Visible = false;
             LoseLabel.Visible = false;
             MoreMovesLabel.Visible = false;
-            ShowAnswer();  //Debug
+            //ShowAnswer();  //Debug
         }
 
         private void DrawMap()
