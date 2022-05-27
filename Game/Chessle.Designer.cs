@@ -29,84 +29,107 @@ namespace Game
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.NewGame = new System.Windows.Forms.Button();
+            this.Hint = new System.Windows.Forms.Button();
+            this.Check = new System.Windows.Forms.Button();
+            this.VictoryLabel = new System.Windows.Forms.Label();
+            this.LoseLabel = new System.Windows.Forms.Label();
+            this.MoreMovesLabel = new System.Windows.Forms.Label();
+            this.Undo = new System.Windows.Forms.Button();
+            this.Rules = new System.Windows.Forms.Button();
+            this.RulePic = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.RulePic)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // NewGame
             // 
-            this.button1.Location = new System.Drawing.Point(410, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(67, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "NewGame";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.NewGame.Location = new System.Drawing.Point(410, 12);
+            this.NewGame.Name = "NewGame";
+            this.NewGame.Size = new System.Drawing.Size(67, 23);
+            this.NewGame.TabIndex = 0;
+            this.NewGame.Text = "NewGame";
+            this.NewGame.UseVisualStyleBackColor = true;
+            this.NewGame.Click += new System.EventHandler(this.NewGame_Click);
             // 
-            // button2
+            // Hint
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button2.Location = new System.Drawing.Point(410, 42);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(67, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Move Hint";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Hint.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Hint.Location = new System.Drawing.Point(410, 42);
+            this.Hint.Name = "Hint";
+            this.Hint.Size = new System.Drawing.Size(67, 23);
+            this.Hint.TabIndex = 1;
+            this.Hint.Text = "Move Hint";
+            this.Hint.UseVisualStyleBackColor = false;
+            this.Hint.Click += new System.EventHandler(this.Hint_Click);
             // 
-            // button3
+            // Check
             // 
-            this.button3.Location = new System.Drawing.Point(410, 71);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(67, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Check";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Check.Location = new System.Drawing.Point(410, 71);
+            this.Check.Name = "Check";
+            this.Check.Size = new System.Drawing.Size(67, 23);
+            this.Check.TabIndex = 2;
+            this.Check.Text = "Check";
+            this.Check.UseVisualStyleBackColor = true;
+            this.Check.Click += new System.EventHandler(this.Check_Click);
             // 
-            // label1
+            // VictoryLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(416, 130);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Victory!";
+            this.VictoryLabel.AutoSize = true;
+            this.VictoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.VictoryLabel.Location = new System.Drawing.Point(416, 130);
+            this.VictoryLabel.Name = "VictoryLabel";
+            this.VictoryLabel.Size = new System.Drawing.Size(61, 20);
+            this.VictoryLabel.TabIndex = 3;
+            this.VictoryLabel.Text = "Victory!";
             // 
-            // label2
+            // LoseLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(416, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Lose(";
+            this.LoseLabel.AutoSize = true;
+            this.LoseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LoseLabel.Location = new System.Drawing.Point(416, 130);
+            this.LoseLabel.Name = "LoseLabel";
+            this.LoseLabel.Size = new System.Drawing.Size(49, 20);
+            this.LoseLabel.TabIndex = 4;
+            this.LoseLabel.Text = "Lose(";
             // 
-            // label3
+            // MoreMovesLabel
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(406, 130);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 66);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "You need to make 6 moves!";
+            this.MoreMovesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MoreMovesLabel.Location = new System.Drawing.Point(406, 130);
+            this.MoreMovesLabel.Name = "MoreMovesLabel";
+            this.MoreMovesLabel.Size = new System.Drawing.Size(82, 66);
+            this.MoreMovesLabel.TabIndex = 5;
+            this.MoreMovesLabel.Text = "You need to make 6 moves!";
             // 
-            // button4
+            // Undo
             // 
-            this.button4.Location = new System.Drawing.Point(410, 101);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(67, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Undo";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.Undo.Location = new System.Drawing.Point(410, 101);
+            this.Undo.Name = "Undo";
+            this.Undo.Size = new System.Drawing.Size(67, 23);
+            this.Undo.TabIndex = 6;
+            this.Undo.Text = "Undo";
+            this.Undo.UseVisualStyleBackColor = true;
+            this.Undo.Click += new System.EventHandler(this.Undo_Click);
+            // 
+            // Rules
+            // 
+            this.Rules.Location = new System.Drawing.Point(410, 346);
+            this.Rules.Name = "Rules";
+            this.Rules.Size = new System.Drawing.Size(67, 23);
+            this.Rules.TabIndex = 7;
+            this.Rules.Text = "Rules";
+            this.Rules.UseVisualStyleBackColor = true;
+            this.Rules.Click += new System.EventHandler(this.Rules_Click);
+            // 
+            // RulePic
+            // 
+            this.RulePic.Enabled = false;
+            this.RulePic.Location = new System.Drawing.Point(0, 0);
+            this.RulePic.Name = "RulePic";
+            this.RulePic.Size = new System.Drawing.Size(400, 405);
+            this.RulePic.TabIndex = 8;
+            this.RulePic.TabStop = false;
+            this.RulePic.Visible = false;
             // 
             // Chessle
             // 
@@ -115,17 +138,19 @@ namespace Game
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(490, 461);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.RulePic);
+            this.Controls.Add(this.Rules);
+            this.Controls.Add(this.Undo);
+            this.Controls.Add(this.MoreMovesLabel);
+            this.Controls.Add(this.LoseLabel);
+            this.Controls.Add(this.VictoryLabel);
+            this.Controls.Add(this.Check);
+            this.Controls.Add(this.Hint);
+            this.Controls.Add(this.NewGame);
             this.MaximumSize = new System.Drawing.Size(530, 650);
             this.Name = "Chessle";
             this.Text = "Chessle";
-            this.Load += new System.EventHandler(this.Chessle_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.RulePic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,13 +158,15 @@ namespace Game
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button NewGame;
+        private System.Windows.Forms.Button Hint;
+        private System.Windows.Forms.Button Check;
+        private System.Windows.Forms.Label VictoryLabel;
+        private System.Windows.Forms.Label LoseLabel;
+        private System.Windows.Forms.Label MoreMovesLabel;
+        private System.Windows.Forms.Button Undo;
+        private System.Windows.Forms.Button Rules;
+        private System.Windows.Forms.PictureBox RulePic;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
@@ -37,10 +38,10 @@ namespace Game
             DrawMap();
             GuessButtonsInit(0);
             PrevMoves = new Stack<(Figure, Figure)>();
-            label1.Visible = false;
-            label2.Visible = false;
-            label3.Visible = false;
-            //ShowAnswer();  //Debug
+            VictoryLabel.Visible = false;
+            LoseLabel.Visible = false;
+            MoreMovesLabel.Visible = false;
+            ShowAnswer();  //Debug
         }
 
         private void DrawMap()
@@ -149,9 +150,9 @@ namespace Game
                 ButtonMap[move.X, move.Y].BackColor = GetFColor(move.X, move.Y);
         }
 
-        private void GuessButtonsInit(int j)
+        private void GuessButtonsInit(int row)
         {
-            for (var i = 0; i < 6; i++)
+            for (var column = 0; column < 6; column++)
             {
                 var newBut = new Button
                 {
@@ -163,9 +164,9 @@ namespace Game
                     Font = new Font("Microsoft Sans Serif", 13F),
                     ForeColor = Color.Black,
                     Padding = new Padding(0),
-                    Location = new Point(6 + 60*i + i*6, 408 + j*55 + j*6)
+                    Location = new Point(6 + 60*column + column*6, 408 + row*55 + row*6)
                 };
-                GuessButtonMap[j, i] = newBut;
+                GuessButtonMap[row, column] = newBut;
                 this.Controls.Add(newBut);
 
             }
@@ -177,34 +178,36 @@ namespace Game
                 GameCode.CurGuess[GameCode.CurrentAttempt].Last();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void NewGame_Click(object sender, EventArgs e)
         {
             this.Controls.Clear();
-            this.Controls.Add(button1);
-            this.Controls.Add(button2);
-            this.Controls.Add(button3);
-            this.Controls.Add(label1);
-            this.Controls.Add(label2);
-            this.Controls.Add(label3);
-            this.Controls.Add(button4);
+            this.Controls.Add(NewGame);
+            this.Controls.Add(Hint);
+            this.Controls.Add(Check);
+            this.Controls.Add(VictoryLabel);
+            this.Controls.Add(LoseLabel);
+            this.Controls.Add(MoreMovesLabel);
+            this.Controls.Add(Undo);
+            this.Controls.Add(Rules);
+            this.Controls.Add(RulePic);
             Init();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Hint_Click(object sender, EventArgs e)
         {
             if (HintOn)
             {
                 HintOn = false;
-                button2.BackColor = SystemColors.ControlLight;
+                Hint.BackColor = SystemColors.ControlLight;
             }
             else
             {
                 HintOn = true;
-                button2.BackColor = Color.Aquamarine;
+                Hint.BackColor = Color.Aquamarine;
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Check_Click(object sender, EventArgs e)
         {
             if (CurMoves != 6)
             {
@@ -267,23 +270,18 @@ namespace Game
             return true;
         }
 
-        private void VictoryMsg() => label1.Visible = true;
+        private void VictoryMsg() => VictoryLabel.Visible = true;
 
-        private void LoseMsg() => label2.Visible = true;
+        private void LoseMsg() => LoseLabel.Visible = true;
 
         private void DoMoreMoves()
         {
-            BeginInvoke(new Action(() => label3.Visible = true));
+            BeginInvoke(new Action(() => MoreMovesLabel.Visible = true));
             Thread.Sleep(3000);
-            BeginInvoke(new Action(() => label3.Visible = false));
+            BeginInvoke(new Action(() => MoreMovesLabel.Visible = false));
         }
 
-        private void Chessle_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void Undo_Click(object sender, EventArgs e)
         {
             if (PrevMoves.Count == 0)
                 return;
@@ -336,6 +334,13 @@ namespace Game
         private void OnShowAnswerClick(object sender, EventArgs e)
         {
             ansLabel.Visible = !ansLabel.Visible;
+        }
+
+        private void Rules_Click(object sender, EventArgs e)
+        {
+            RulePic.Visible = !RulePic.Visible;
+            var rulePicPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "rules.png");
+            RulePic.Image =  new Bitmap(Image.FromFile(rulePicPath),RulePic.Size);
         }
     }
 }
