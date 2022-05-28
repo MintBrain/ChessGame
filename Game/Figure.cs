@@ -151,8 +151,6 @@ namespace Game
             }
         }
 
-        
-
         private void KnightMoves()
         {
             var posDirections = new[] { (2, -1), (2, 1), (1, -2), (1, 2),
@@ -172,26 +170,26 @@ namespace Game
         private void BishopMoves()
         {
             var boolList = new bool[4];
-            foreach (var el in new[] { 1, 2, 3, 4, 5, 6, 7 })
+            for (var i = 1; i < 8; i++)
             {
                 if (boolList.All(b => b)) break;
-                if (!boolList[0]) LinearMove(el, -el, boolList, 0);
-                if (!boolList[1]) LinearMove(el, el, boolList, 1);
-                if (!boolList[2]) LinearMove(-el, -el, boolList, 2);
-                if (!boolList[3]) LinearMove(-el, el, boolList, 3);
+                if (!boolList[0]) LinearMove(i, -i, boolList, 0);
+                if (!boolList[1]) LinearMove(i, i, boolList, 1);
+                if (!boolList[2]) LinearMove(-i, -i, boolList, 2);
+                if (!boolList[3]) LinearMove(-i, i, boolList, 3);
             }
         }
 
         private void RookMoves()
         {
             var boolList = new bool[4];
-            foreach (var el in new[] { 1, 2, 3, 4, 5, 6, 7 })
+            for (var i = 1; i < 8; i++)
             {
                 if (boolList.All(b => b)) break;
-                if (!boolList[0]) LinearMove(-el, 0, boolList, 0);
-                if (!boolList[1]) LinearMove(el, 0, boolList, 1);
-                if (!boolList[2]) LinearMove(0, -el, boolList, 2);
-                if (!boolList[3]) LinearMove(0, el, boolList, 3);
+                if (!boolList[0]) LinearMove(-i, 0, boolList, 0);
+                if (!boolList[1]) LinearMove(i, 0, boolList, 1);
+                if (!boolList[2]) LinearMove(0, -i, boolList, 2);
+                if (!boolList[3]) LinearMove(0, i, boolList, 3);
             }
         }
 
