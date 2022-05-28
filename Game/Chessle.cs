@@ -21,6 +21,8 @@ namespace Game
         private int CurMoves => GameCode.CurGuess[GameCode.CurrentAttempt].Count;
         private Stack<(Figure,Figure)> PrevMoves;
         private Label ansLabel;
+        private int FieldBottom => GameCode.FieldSize.Height * 8;
+        private int FieldRight => GameCode.FieldSize.Width * 8;
 
         public Chessle()
         {
@@ -50,7 +52,7 @@ namespace Game
             {
                 var figureButton = new Button
                 {
-                    Size = new Size(50, 50),
+                    Size = GameCode.FieldSize,
                     Location = el.FormLocation,
                     Image = el.Image,
                     FlatStyle = FlatStyle.Flat,
@@ -75,15 +77,13 @@ namespace Game
             if (OldPressedButton != null)
             {
                 oldFigure = OldPressedButton.Tag as Figure;
-                if (HintOn) HideOldPossibleMoves();
-
+                HideOldPossibleMoves();
                 OldPressedButton.FlatAppearance.BorderSize = 0;
             }
 
             if (curFigure.FigureName != 0 && curFigure.PlayerColor == CurPlayer)
             {
                 if (HintOn) ShowPossibleMoves(curFigure);
-
                 curPressedBut.FlatAppearance.BorderSize = 2;
                 FigurePressed = true;
             }
@@ -164,7 +164,8 @@ namespace Game
                     Font = new Font("Microsoft Sans Serif", 13F),
                     ForeColor = Color.Black,
                     Padding = new Padding(0),
-                    Location = new Point(6 + 60*column + column*6, 408 + row*55 + row*6)
+                    Location = new Point(6 + 60*column + column*6,
+                        FieldBottom + 8 + row*55 + row*6)
                 };
                 GuessButtonMap[row, column] = newBut;
                 this.Controls.Add(newBut);
@@ -308,7 +309,7 @@ namespace Game
         {
             var showAnswerBtn = new Button
             {
-                Location = new Point(410, 230),
+                Location = new Point(FieldRight + 10, 230),
                 Name = "AnsButton",
                 Size = new Size(67, 39),
                 Text = "Show\r\nAnswer\r\n"
@@ -317,11 +318,14 @@ namespace Game
             this.Controls.Add(showAnswerBtn);
 
             var curVar = GameCode.CurVariant;
-            var labelText = $"1. {curVar[0]} {curVar[1]}\r\n2. {curVar[2]} {curVar[3]}\r\n3. {curVar[4]} {curVar[5]}";
+            var labelText = $"1. {curVar[0]} {curVar[1]}\r\n" +
+                            $"2. {curVar[2]} {curVar[3]}\r\n" +
+                            $"3. {curVar[4]} {curVar[5]}";
+
             ansLabel = new Label
             {
                 Name = "AnsLabel",
-                Location = new Point(409, 280),
+                Location = new Point(FieldRight + 9, 280),
                 Size = new Size(35, 13),
                 AutoSize = true,
                 Text = labelText,

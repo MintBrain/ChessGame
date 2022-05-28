@@ -9,7 +9,8 @@ namespace Game
         public Bitmap Image;
         public Player PlayerColor;
         public Point Position;
-        public Point FormLocation => new Point(Position.Y * 50, Position.X * 50);
+        public Point FormLocation => 
+            new Point(Position.Y * GameCode.FieldSize.Width, Position.X * GameCode.FieldSize.Height);
         public Pieces FigureName;
         public List<Point> PossibleMoves;
 
@@ -56,7 +57,7 @@ namespace Game
             };
         }
 
-        public Point NewPoint(Point point) => new Point(point.X, point.Y);
+        private Point NewPoint(Point point) => new Point(point.X, point.Y);
 
         public void MoveFigureTo(Figure swapFigure)
         {
@@ -208,7 +209,7 @@ namespace Game
             }
         }
 
-        public void LinearMove(int x, int y, bool[] boolList, int i)
+        private void LinearMove(int x, int y, bool[] boolList, int i)
         {
             if (CheckInBounds(x, y))
             {

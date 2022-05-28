@@ -17,6 +17,7 @@ namespace Game
         public static List<List<string>> CurGuess;
         public static string[] CurVariant;
         public static int CurrentAttempt;
+        public static Size FieldSize = new Size(50, 50);
 
         public static void Chess()
         {
@@ -44,8 +45,7 @@ namespace Game
 
         public static void NewGame()
         {
-            CurGuess = new List<List<string>>();
-            CurGuess.Add(new List<string>());
+            CurGuess = new List<List<string>> {new List<string>()};
             CurrentAttempt = 0;
             CurVariant = RandomVariant();
             CreateField();

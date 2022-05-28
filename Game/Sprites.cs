@@ -9,8 +9,6 @@ namespace Game
         private static readonly string BlackSpritesFolder =
             Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "pieces", "black");
 
-        private static readonly Size SpriteSize = new Size(50, 50);
-
         public static Bitmap BlackFig(int i)
         {
             return i switch
@@ -25,17 +23,17 @@ namespace Game
         }
 
         public static readonly Bitmap Pawn =
-            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bP.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bP.png")), GameCode.FieldSize);
         public static readonly Bitmap Knight =
-            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bN.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bN.png")), GameCode.FieldSize);
         public static readonly Bitmap Bishop =
-            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bB.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bB.png")), GameCode.FieldSize);
         public static readonly Bitmap Queen =
-            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bQ.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bQ.png")), GameCode.FieldSize);
         public static readonly Bitmap King =
-            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bK.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bK.png")), GameCode.FieldSize);
         public static readonly Bitmap Rook =
-            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bR.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(BlackSpritesFolder, "bR.png")), GameCode.FieldSize);
     }
 
     public static class WhiteSprites
@@ -43,7 +41,6 @@ namespace Game
         private static readonly string WhiteSpritesFolder =
             Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "pieces", "white");
 
-        private static readonly Size SpriteSize = new Size(50, 50);
         public static Bitmap WhiteFig(int i)
         {
             return i switch
@@ -58,16 +55,16 @@ namespace Game
         }
 
         public static readonly Bitmap Pawn =
-            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wP.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wP.png")), GameCode.FieldSize);
         public static readonly Bitmap Knight =
-            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wN.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wN.png")), GameCode.FieldSize);
         public static readonly Bitmap Bishop =
-            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wB.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wB.png")), GameCode.FieldSize);
         public static readonly Bitmap Queen =
-            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wQ.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wQ.png")), GameCode.FieldSize);
         public static readonly Bitmap King =
-            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wK.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wK.png")), GameCode.FieldSize);
         public static readonly Bitmap Rook =
-            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wR.png")), SpriteSize);
+            new Bitmap(Image.FromFile(Path.Combine(WhiteSpritesFolder, "wR.png")), GameCode.FieldSize);
     }
 }
